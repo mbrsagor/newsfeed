@@ -7,7 +7,7 @@ from rest_framework import permissions
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from portal.serializer import auth_serializer
-from utils.custom_responses import prepare_error_response
+from utils.custom_responses import prepare_error_response, prepare_success_response
 
 
 class UserLoginView(TokenObtainPairView):
@@ -24,10 +24,9 @@ class RegisterView(generics.CreateAPIView):
 class LogoutView(views.APIView):
     permission_classes = [permissions.IsAuthenticated, ]
 
-    def post(self, request):
+    def get(self, request):
         logout(request)
-        data = {'message': 'logged out'}
-        return Response(data=data, status=status.HTTP_200_OK)
+        return Response(prepare_success_response('user has been logout'), status=status.HTTP_200_OK)
 
 
 class ProfileView(views.APIView):
@@ -43,7 +42,6 @@ class ProfileView(views.APIView):
 
 
 class ChangePasswordView(generics.UpdateAPIView):
-
     queryset = User.objects.all()
     permission_classes = (permissions.IsAuthenticated,)
     serializer_class = auth_serializer.PasswordUpdateSerializer

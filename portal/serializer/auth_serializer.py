@@ -51,9 +51,10 @@ class RegistrationSerializer(serializers.ModelSerializer):
 # Generic user profile serializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = [
-            'id', 'username', 'email', 'first_name', 'last_name', 'is_active',
-            'is_superuser', 'is_staff', 'last_login'
+        model = User
+        fields = [
+            'id', 'username', 'email', 'first_name', 'last_name',
+            'is_active', 'is_superuser', 'is_staff', 'last_login'
         ]
 
 
