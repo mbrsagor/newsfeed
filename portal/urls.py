@@ -1,6 +1,10 @@
 from django.urls import path
-from portal.views import user_view, news_view
+from rest_framework.routers import DefaultRouter
 
+from portal.views import user_view, news_view, country_view
+
+router = DefaultRouter()
+router.register('country', country_view.CountryViewSet)
 
 urlpatterns = [
     # Auth API endpoint
@@ -11,4 +15,5 @@ urlpatterns = [
     path('registration/', user_view.RegisterView.as_view(), name='user_registration'),
     # News api endpoint start
     path('news/', news_view.AllNewsAPIView.as_view(), name='news_view'),
-]
+    path('news/', country_view.UserConfigAPIView.as_view(), name='news_view'),
+] + router.urls
