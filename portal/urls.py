@@ -14,6 +14,7 @@ urlpatterns = [
     path('password-change/<int:pk>/', user_view.ChangePasswordView.as_view(), name='password_change'),
     path('registration/', user_view.RegisterView.as_view(), name='user_registration'),
     # News api endpoint start
-    path('news/', news_view.AllNewsAPIView.as_view(), name='news_view'),
-    path('news/', country_view.UserConfigAPIView.as_view(), name='news_view'),
+    path('country-news/', news_view.FilterByCountryNewsAPIView.as_view(), name='country_news_view'),
+    path('source-news/', news_view.FilterBySourceNewsView.as_view(), name='source_news_view'),
+    path('user-config/', country_view.UserConfigAPIView.as_view(), name='user_config'),
 ] + router.urls

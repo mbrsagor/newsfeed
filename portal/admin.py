@@ -1,3 +1,5 @@
 from django.contrib import admin
+from portal.models import Country, UserConfig
 
-# Register your models here.
+admin.site.register(Country)
+admin.site.register(UserConfig)

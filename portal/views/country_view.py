@@ -28,6 +28,11 @@ class UserConfigAPIView(views.APIView):
         return Response(prepare_error_response(serializer.errors), status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
-        user_config = UserConfig.objects.all()
-        serializer = UserConfigSerializer(user_config, many=True)
+        user_config = request.user.user_config
+        serializer = UserConfigSerializer(user_config)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class CountryOfNewsFilterView(views.APIView):
+    def get(self, request):
+        pass

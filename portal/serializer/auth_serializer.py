@@ -4,6 +4,8 @@ from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import validate_password
 
+from portal.models import UserConfig
+
 
 # The serializer for user login
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -45,6 +47,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         )
         user_instance.set_password(validated_data['password'])
         user_instance.save()
+        user_config = UserConfig.objects.create(user=user_instance)
         return user_instance
 
 

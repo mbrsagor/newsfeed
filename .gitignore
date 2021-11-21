@@ -1,6 +1,8 @@
 venv
 .idea
+.vscode
 .env
 db.sqlite3
-
+portal/migrations/
+/migrations/
 __pycache__/

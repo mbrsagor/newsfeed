@@ -166,7 +166,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # API Key and news API:
 ROOT_URL = env('ROOT_URL')
 API_KEY = env('API_KEY')
-ALL_NEWS = env('ALL_NEWS')
+NEWS_BY_SOURCE = env('NEWS_BY_SOURCE')
+FILTER_BY_COUNTRY = env('FILTER_BY_COUNTRY')
 
 # Email SMTP
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
