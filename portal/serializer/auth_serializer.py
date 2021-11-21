@@ -85,3 +85,26 @@ class PasswordUpdateSerializer(serializers.ModelSerializer):
         instance.set_password(validated_data['password'])
         instance.save()
         return instance
+
+
+class ResetPasswordSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(max_length=100)
+    password = serializers.CharField(max_length=100)
+
+    class Meta:
+        model = User
+        fields = [
+            'id', 'username', 'password'
+        ]
+
+    def save(self):
+        username = self.validated_data['username']
+        password = self.validated_data['password']
+
+        if User.objects.filter(username=username).exists():
+            user = User.objects.get(username=username)
+            user.set_password(password)
+            user.save()
+            return user
+        else:
+            raise serializers.ValidationError({'error': 'please enter valid crendentials'})

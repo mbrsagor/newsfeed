@@ -26,4 +26,3 @@ def prepare_error_response(serializer_error):
         "data": None
     }
     return response
-

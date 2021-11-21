@@ -164,5 +164,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # API Key and news API:
+ROOT_URL = env('ROOT_URL')
 API_KEY = env('API_KEY')
 ALL_NEWS = env('ALL_NEWS')
+
+# Email SMTP
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+SENDGRID_API_KEY = os.getenv('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')
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'  # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
