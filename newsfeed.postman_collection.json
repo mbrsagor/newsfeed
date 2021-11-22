@@ -1,0 +1,225 @@
+{
+	"info": {
+		"_postman_id": "5e10b454-4b10-44bf-b793-b045473a5b60",
+		"name": "newsfeed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "filter_by_country",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://newsapi.org/v2/everything?q=tesla&from=2021-10-20&sortBy=publishedAt&apiKey=521a4625e4a341be9e1a668e132431ab",
+					"protocol": "https",
+					"host": [
+						"newsapi",
+						"org"
+					],
+					"path": [
+						"v2",
+						"everything"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "tesla"
+						},
+						{
+							"key": "from",
+							"value": "2021-10-20"
+						},
+						{
+							"key": "sortBy",
+							"value": "publishedAt"
+						},
+						{
+							"key": "apiKey",
+							"value": "521a4625e4a341be9e1a668e132431ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"sagor\",\n    \"password\": \"dev@2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/portal/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"portal",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"isah\",\n    \"email\": \"isha@gmail.com\",\n    \"first_name\": \"Most. Asrafi islam\",\n    \"last_name\": \"isha\",\n    \"password\": \"dev@2020\",\n    \"password2\": \"dev@2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/portal/registration/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"portal",
+						"registration",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3NDE0OTY3LCJpYXQiOjE2Mzc0MTQ2NjcsImp0aSI6ImM4OTExNmQ3NzE3YjQyY2FiZTllZDRjMjNmZDU4ZjkxIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJzYWdvciJ9.lPaUMOOpLo7gEEldzd7_t9g6QFVXp0XYS2NdYpJxoTY    \"access\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/portal/profile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"portal",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjM3NDE1MTcxLCJpYXQiOjE2Mzc0MTQ4NzEsImp0aSI6ImNjN2U2NTRhODgxZDQwYjc4MDJjZDFkOGFjMzlhYmY4IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJzYWdvciJ9.pdbmnGUkD-47Er84-ZT1w2KRSJQFSY7vD1xYPQCuMxM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"admin@2020\",\n    \"password2\": \"admin@2020\",\n    \"old_password\": \"dev@2020\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/portal/password-change/2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"portal",
+						"password-change",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-config-view",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "filter_by_source",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

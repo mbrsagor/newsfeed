@@ -1,6 +1,7 @@
 venv
 .idea
 .vscode
+.DS_Store
 .env
 db.sqlite3
 portal/migrations/
