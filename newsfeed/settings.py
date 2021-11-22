@@ -53,6 +53,7 @@ PROJECT_APPS = [
 # Install libraries apps
 LIBRARY_APPS = [
     'rest_framework',
+    'django_celery_results',
 ]
 INSTALLED_APPS = DEFAULT_APPS + PROJECT_APPS + LIBRARY_APPS
 
@@ -137,7 +138,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -179,3 +180,7 @@ REST_FRAMEWORK = {
     )
 }
 
+# Celery Configuration Options
+CELERY_TIMEZONE = env('CELERY_TIMEZONE')
+CELERY_TASK_TRACK_STARTED = env('CELERY_TASK_TRACK_STARTED')
+CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND')
