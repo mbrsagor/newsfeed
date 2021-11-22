@@ -169,11 +169,13 @@ API_KEY = env('API_KEY')
 NEWS_BY_SOURCE = env('NEWS_BY_SOURCE')
 FILTER_BY_COUNTRY = env('FILTER_BY_COUNTRY')
 
-# Email SMTP
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-SENDGRID_API_KEY = os.getenv('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')
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'  # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# Rest Framework Settings
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+

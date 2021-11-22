@@ -1,5 +1,5 @@
 import requests
-from rest_framework import views, status, permissions
+from rest_framework import views, status
 from rest_framework.response import Response
 from django.conf import settings
 
@@ -7,7 +7,6 @@ from utils.services import api_endpoint
 
 
 class FilterByCountryNewsAPIView(views.APIView):
-    permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         url = api_endpoint(settings.ROOT_URL, settings.FILTER_BY_COUNTRY, settings.API_KEY)

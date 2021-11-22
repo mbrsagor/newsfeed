@@ -2,7 +2,7 @@ from rest_framework import views, viewsets, status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 
-from portal.serializer.country_serializer import CountrySerializer, UserConfigSerializer
+from portal.serializer.user_config_serializer import CountrySerializer, UserConfigSerializer
 from portal.models import Country, UserConfig
 from utils.custom_responses import prepare_success_response, prepare_error_response
 from utils.services import validate_country
